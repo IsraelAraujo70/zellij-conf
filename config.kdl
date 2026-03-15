@@ -138,6 +138,18 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" {
         bind "Alt left" { MoveFocusOrTab "left"; }
+        bind "Alt c" {
+            Run "codex" {
+                direction "right"
+                name "codex"
+            }
+            MoveFocus "right"
+            MovePane "left"
+            Resize "Decrease right"
+            Resize "Decrease right"
+            Resize "Decrease right"
+            SwitchToMode "normal"
+        }
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
         bind "Alt right" { MoveFocusOrTab "right"; }
@@ -154,7 +166,19 @@ keybinds clear-defaults=true {
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
+        bind "Alt o" {
+            Run "opencode" {
+                direction "right"
+                name "opencode"
+            }
+            MoveFocus "right"
+            MovePane "left"
+            Resize "Decrease right"
+            Resize "Decrease right"
+            Resize "Decrease right"
+            SwitchToMode "normal"
+        }
+        bind "Alt Shift o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Alt m" {
@@ -281,6 +305,10 @@ load_plugins {
 web_client {
     font "monospace"
 }
+
+// Keep pane sizing predictable for side-by-side editor/assistant workflows.
+auto_layout false
+stacked_resize false
  
 // Use a simplified UI without special fonts (arrow glyphs)
 // Options:
