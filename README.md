@@ -16,7 +16,7 @@ Para iniciar o Zellij automaticamente em novos terminais, adicione ao fim do `~/
   source "$HOME/.config/zellij/shell/auto-start.sh"
 ```
 
-O script não cria sessões aninhadas dentro de tmux ou Zellij. Para abrir temporariamente um shell sem o auto-start:
+O script não cria sessões aninhadas dentro de tmux ou Zellij e não inicia o Zellij nos terminais do cmux, que já oferece workspaces e painéis. Para abrir temporariamente um shell sem o auto-start em outro terminal:
 
 ```sh
 ZELLIJ_AUTO_START=false zsh
